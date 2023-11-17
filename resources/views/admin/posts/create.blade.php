@@ -27,7 +27,7 @@
             <textarea id="content" name="content" class="form-control" rows="10" placeholder="請輸入文章內容">{{old('content')}}</textarea>
         </div>
         <div class="form-group">
-            <label for="is_feature" class="form-label">文章內容</label>
+            <label for="is_feature" class="form-label">精選?</label>
             <select id="is_feature" name="is_feature" class="form-control">
                 <option value="0">否</option>
                 <option value="1">是</option>
