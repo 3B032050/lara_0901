@@ -19,17 +19,19 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">標題</th>
+            <th scope="col" style="text-align:left">標題</th>
+            <th scope="col" style="text-align:right">精選?</th>
             <th scope="col">功能</th>
         </tr>
         </thead>
         <tbody>
-        @foreach(range(1, 10) as $id)
+        @foreach($posts as $post)
             <tr>
-                <th scope="row" style="width: 50px">{{ $id }}</th>
-                <td>{{ '標題' . $id }}</td>
-                <td style="width: 150px">
-                    <button type="button" class="btn btn-primary btn-sm">編輯</button>
+                <td style="text-align:right"> {{ $post->id }}</td>
+                <td>{{ '標題' . $post->title }}</td>
+                <td>{{($post->is_feature)? 'v' : 'x'}}</td>
+                <td style="width:150px">
+                    <a href="{{route('admin.posts.edit',$post->id)}}" class="btn btn-primary btn-sm">編輯</a>
                     <button type="button" class="btn btn-danger btn-sm">刪除</button>
                 </td>
             </tr>

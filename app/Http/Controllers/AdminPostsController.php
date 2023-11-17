@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class AdminPostsController extends Controller
 {
     public function index()
     {
-        return view('admin.posts.index');
+        /*Select * From posts Order By id DESC*/
+        $posts = Post::orderBy('created_at','DESC')->GET();
+
+        /*dump & die*/
+        //dd($posts);
+
+        $data = ['posts'=>$posts,];
+
+        return view('admin.posts.index', $data);
+
     }
 
     public function create()
